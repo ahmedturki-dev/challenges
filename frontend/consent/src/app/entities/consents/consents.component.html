@@ -1,0 +1,27 @@
+<mat-table class="mat-elevation-z8" [dataSource]="consents">
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let consent">{{consent.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+    <mat-cell class="description-cell"
+              *matCellDef="let consent">{{consent.email}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="types">
+    <mat-header-cell *matHeaderCellDef>Consent given for</mat-header-cell>
+    <mat-cell class="duration-cell"
+              *matCellDef="let consent">{{consent.consentType}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSize]="2" #paginator [length]="consentsLength">
+</mat-paginator>
