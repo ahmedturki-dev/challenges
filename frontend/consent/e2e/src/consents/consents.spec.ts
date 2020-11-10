@@ -30,10 +30,6 @@ describe('Give consent e2e test', () => {
   it('save consent and check element in table view', async () => {
     consentsPageObject = new ConsentsPageObject();
 
-    await consentsPageObject.setNameInput("manager");
-    await consentsPageObject.setEmailInput("manager@gmail.com");
-    await consentsPageObject.clickOnConsentType();
-
     const btn = await consentsPageObject.getGiveConsentButton();
     expect(btn.isEnabled()).toEqual(true);
     await consentsPageObject.getGiveConsentButton().click();
